@@ -25,12 +25,14 @@ namespace Menü
             // s.Replace();
             // ausgabe = s.Replace(z, e);
 
-            string wiederholen, s;
-            string ausgabe = "";
+            string wiederholen;
+            
 
             do
             {
                 int auswahl;
+                string s;
+                string ausgabe = "";
                 Console.WriteLine("1: Zeichen ersetzen.");
                 Console.WriteLine("2: Vokale entfernen.");
                 Console.WriteLine("3: Beenden.");
