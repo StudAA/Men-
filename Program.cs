@@ -30,15 +30,23 @@ namespace Menü
 
             do
             {
-                int auswahl;
-                string s;
+                int auswahl = 0;
+                string s, auswahl0;
                 string ausgabe = "";
                 Console.WriteLine("1: Zeichen ersetzen.");
                 Console.WriteLine("2: Vokale entfernen.");
                 Console.WriteLine("3: Beenden.");
 
 
-                auswahl = Convert.ToInt32(Console.ReadLine());
+                auswahl0 = Console.ReadLine();
+                if (auswahl0 != "1" && auswahl0 != "2" && auswahl0 != "3")
+                {
+                    Console.WriteLine("Auswahl ist ungültig.");
+                }
+                else
+                {
+                    auswahl = Convert.ToInt32(auswahl0);
+                }
 
                 switch (auswahl)
                 {
@@ -83,13 +91,14 @@ namespace Menü
                         break;
                     case 3:
                         Console.WriteLine("Programm wird beendet.");
-                        
+                        Environment.Exit(0);
                         break;
 
-                    default:
+                   /* default:
                         Console.WriteLine("Auswahl ungültig.");
-                        break;
+                        break;*/
                 }
+
 
 
 
