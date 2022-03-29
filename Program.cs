@@ -31,8 +31,7 @@ namespace Menü
             do
             {
                 int auswahl = 0;
-                string s, auswahl0;
-                string ausgabe = "";
+                string s, auswahl0, gk, ausgabe = "", k = "", ausgabe1 = "",E = "";
                 Console.WriteLine("1: Zeichen ersetzen.");
                 Console.WriteLine("2: Vokale entfernen.");
                 Console.WriteLine("3: Beenden.");
@@ -52,33 +51,85 @@ namespace Menü
                 {
                     case 1:
                         Console.WriteLine("Zeichen sollen ersetzt werden.");
-                        Console.WriteLine("Geben Sie eine Zeichenkette ein.");
+                        Console.WriteLine("Geben Sie eine Zeichenkette ein:");
                         s = Console.ReadLine();
                         Console.WriteLine("Welches Zeichen soll ersetzt werden?");
                         char z = Convert.ToChar(Console.ReadLine());
                         Console.WriteLine("Durch was soll das Zeichen ersetzt werden?");
                         char e = Convert.ToChar(Console.ReadLine());
-                        Console.WriteLine("Es wird "+z+" durch "+e+" ersetzt.");
-                        for (int i=0; i<s.Length; i++)
+                        Console.WriteLine("Groß- und Kleinschreibung beachten? (j/n)");
+                        gk = Console.ReadLine();
+                        for (int i = 0; i < 1; i = 0)
                         {
-                            if (s[i]==z)
+                            if (gk == "j" || gk == "J" || gk == "n" || gk == "N")
                             {
-                                ausgabe += e;
+                                break;
                             }
                             else
                             {
-                                ausgabe += s[i];
+                                Console.WriteLine("Auswahl ist ungültig.");
+                                Console.WriteLine("Groß- und Kleinschreibung beachten? (j/n)");
+                                gk = Console.ReadLine();
+                            }
+                        }
+                        Console.WriteLine("Es wird "+z+" durch "+e+" ersetzt.");
+                        if (gk == "j" || gk == "J")
+                        {
+                            for (int i = 0; i < s.Length; i++)
+                            {
+                                if (s[i] == z)
+                                {
+                                    ausgabe += e;
+                                }
+                                else
+                                {
+                                    ausgabe += s[i];
+                                }
+                            }
+                        }
+                        if (gk=="n" || gk=="N")
+                        {
+                            E = e.ToString();
+                            E = E.ToUpper();
+                            for (int i = 0; i < s.Length; i++)
+                            {
+                                k = z.ToString();
+                                k = k.ToUpper();
+                                if (s[i] == k[0])
+                                {
+                                    ausgabe1 += E;
+                                }
+                                else
+                                {
+                                    ausgabe1 += s[i];
+                                }
+                            }
+                        }
+                        if (gk == "n" || gk == "N")
+                        {
+                            E = E.ToLower();
+                            for (int i = 0; i < ausgabe1.Length; i++)
+                            {
+                                k = k.ToLower();
+                                if (ausgabe1[i] == k[0])
+                                {
+                                    ausgabe += E;
+                                }
+                                else
+                                {
+                                    ausgabe += ausgabe1[i];
+                                }
                             }
                         }
                         Console.WriteLine(s + " wird zu " + ausgabe);
                         break;
                     case 2:
                         Console.WriteLine("Vokabeln sollen entfernt werden.");
-                        Console.WriteLine("Geben Sie eine Zeichenkette ein.");
+                        Console.WriteLine("Geben Sie eine Zeichenkette ein:");
                         s = Console.ReadLine();
                         for (int i=0; i<s.Length; i++)
                         {
-                            if (s[i]=='a' || s[i] == 'i' || s[i] == 'e' || s[i] == 'o' || s[i] == 'u')
+                            if (s[i]=='a' || s[i] == 'i' || s[i] == 'e' || s[i] == 'o' || s[i] == 'u' || s[i] == 'A' || s[i] == 'I' || s[i] == 'E' || s[i] == 'O' || s[i] == 'U')
                             {
                                 ausgabe += "";
                             }
@@ -106,6 +157,19 @@ namespace Menü
 
                 Console.WriteLine("Neue Auswahl? (j/n)");
                 wiederholen = Console.ReadLine();
+                for (int i=0; i<1; i=0)
+                {
+                    if (wiederholen != "j" && wiederholen != "J" && wiederholen != "n" && wiederholen != "N")
+                    {
+                        Console.WriteLine("Auswahl ist ungültig.");
+                        Console.WriteLine("Neue Auswahl? (j/n)");
+                        wiederholen = Console.ReadLine();
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             } while (wiederholen == "j" || wiederholen == "J");
 
         }
