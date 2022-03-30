@@ -125,7 +125,7 @@ namespace Menü
                         Console.WriteLine(s + " wird zu " + ausgabe);
                         break;
                     case 2:
-                        Console.WriteLine("Vokabeln sollen entfernt werden.");
+                        Console.WriteLine("Vokale sollen entfernt werden.");
                         Console.WriteLine("Geben Sie eine Zeichenkette ein:");
                         s = Console.ReadLine();
                         for (int i=0; i<s.Length; i++)
