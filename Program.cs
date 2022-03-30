@@ -30,16 +30,17 @@ namespace Menü
 
             do
             {
-                int auswahl = 0;
+                int auswahl = 0, ziffer, summe = 0;
                 string s, auswahl0, gk, ausgabe = "", k = "", ausgabe1 = "",E = "";
                 Console.WriteLine("1: Zeichen ersetzen.");
                 Console.WriteLine("2: Vokale entfernen.");
-                Console.WriteLine("3: Beenden.");
+                Console.WriteLine("3: Quersumme bilden");
+                Console.WriteLine("4: Beenden.");
                 Console.WriteLine("\nAuswahl:");
 
 
                 auswahl0 = Console.ReadLine();
-                if (auswahl0 != "1" && auswahl0 != "2" && auswahl0 != "3")
+                if (auswahl0 != "1" && auswahl0 != "2" && auswahl0 != "3" && auswahl0 != "4")
                 {
                     Console.WriteLine("Auswahl ist ungültig.");
                 }
@@ -142,6 +143,17 @@ namespace Menü
                         Console.WriteLine(s + " wird zu " + ausgabe);
                         break;
                     case 3:
+                        Console.WriteLine("Geben Sie eine Zahl an:");
+                        string zahl = Console.ReadLine();
+                        for (int i=0;i<zahl.Length;i++)
+                        {
+                            ziffer = Convert.ToInt32(zahl[i]);
+                            Console.WriteLine(ziffer);
+                            summe = summe + ziffer;
+                        }
+                        Console.WriteLine("Die Quersumme ist:" + summe);
+                        break;
+                    case 4:
                         Console.WriteLine("Programm wird beendet.");
                         Environment.Exit(0);
                         break;
