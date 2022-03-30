@@ -35,7 +35,7 @@ namespace Menü
                 Console.WriteLine("1: Zeichen ersetzen.");
                 Console.WriteLine("2: Vokale entfernen.");
                 Console.WriteLine("3: Beenden.");
-                Console.WriteLine("Auswahl:");
+                Console.WriteLine("\nAuswahl:");
 
 
                 auswahl0 = Console.ReadLine();
