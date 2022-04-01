@@ -30,7 +30,7 @@ namespace Menü
 
             do
             {
-                int auswahl = 0, ziffer, summe = 0;
+                int auswahl = 0, quersumme = 0;
                 string s, auswahl0, gk, ausgabe = "", k = "", ausgabe1 = "",E = "";
                 Console.WriteLine("1: Zeichen ersetzen.");
                 Console.WriteLine("2: Vokale entfernen.");
@@ -144,15 +144,15 @@ namespace Menü
                         break;
                     case 3:
                         Console.WriteLine("Geben Sie eine Zahl an:");
-                        string zahl = Console.ReadLine();
-                        for (int i=0;i<zahl.Length;i++)
+                        int zahl = Convert.ToInt32(Console.ReadLine());
+                        while (zahl > 0)
                         {
-                            ziffer = Convert.ToInt32(zahl[i]);
-                            Console.WriteLine(ziffer);
-                            summe = summe + ziffer;
+                            int ziffer = zahl % 10;
+                            zahl = (zahl - ziffer) / 10;
+                            quersumme += ziffer;
                         }
-                        Console.WriteLine("Die Quersumme ist:" + summe);
-                        break;
+                        Console.WriteLine("Die Quersumme ist: " + quersumme);
+                            break;
                     case 4:
                         Console.WriteLine("Programm wird beendet.");
                         Environment.Exit(0);
