@@ -35,12 +35,13 @@ namespace Menü
                 Console.WriteLine("1: Zeichen ersetzen.");
                 Console.WriteLine("2: Vokale entfernen.");
                 Console.WriteLine("3: Quersumme bilden");
-                Console.WriteLine("4: Beenden.");
+                Console.WriteLine("4: Auf Kleinbuchstaben prüfen");
+                Console.WriteLine("5: Beenden.");
                 Console.WriteLine("\nAuswahl:");
 
 
                 auswahl0 = Console.ReadLine();
-                if (auswahl0 != "1" && auswahl0 != "2" && auswahl0 != "3" && auswahl0 != "4")
+                if (auswahl0 != "1" && auswahl0 != "2" && auswahl0 != "3" && auswahl0 != "4" && auswahl0 != "5")
                 {
                     Console.WriteLine("Auswahl ist ungültig.");
                 }
@@ -143,6 +144,7 @@ namespace Menü
                         Console.WriteLine(s + " wird zu " + ausgabe);
                         break;
                     case 3:
+                        // quersumme += Convert.ToInt32(zahl[i].ToString());
                         Console.WriteLine("Geben Sie eine Zahl an:");
                         int zahl = Convert.ToInt32(Console.ReadLine());
                         while (zahl > 0)
@@ -154,6 +156,25 @@ namespace Menü
                         Console.WriteLine("Die Quersumme ist: " + quersumme);
                             break;
                     case 4:
+                        bool kleinbuchstabe = false;
+                        Console.WriteLine("Eine Zeichenkette wird auf Kleinbuchstaben untersucht.");
+                        Console.WriteLine("Geben Sie eine Zeichenkette ein:");
+                        s = Console.ReadLine();
+                        for (int i=0;i<s.Length;i++)
+                        {
+                            if (char.IsLower(s[i]))
+                            {
+                                Console.WriteLine("Die Zeichenkätte enthält Kleinbuchstaben.");
+                                kleinbuchstabe = true;
+                                break;
+                            }
+                        }
+                        if (kleinbuchstabe == false)
+                        {
+                            Console.WriteLine("Die Zeichenkätte enthält keine Kleinbuchstaben.");
+                        }
+                        break;
+                    case 5:
                         Console.WriteLine("Programm wird beendet.");
                         Environment.Exit(0);
                         break;
