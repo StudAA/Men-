@@ -30,24 +30,25 @@ namespace Menü
 
             do
             {
-                int auswahl = 0, quersumme = 0;
+                uint auswahl, quersumme = 0;
                 string s, auswahl0, gk, ausgabe = "", k = "", ausgabe1 = "",E = "";
                 Console.WriteLine("1: Zeichen ersetzen.");
                 Console.WriteLine("2: Vokale entfernen.");
                 Console.WriteLine("3: Quersumme bilden");
                 Console.WriteLine("4: Auf Kleinbuchstaben prüfen");
-                Console.WriteLine("5: Beenden.");
+                Console.WriteLine("5: Zeichenkette umkehren.");
+                Console.WriteLine("6: Beenden.");
                 Console.WriteLine("\nAuswahl:");
 
 
                 auswahl0 = Console.ReadLine();
-                if (auswahl0 != "1" && auswahl0 != "2" && auswahl0 != "3" && auswahl0 != "4" && auswahl0 != "5")
+                if (uint.TryParse(auswahl0, out auswahl) && auswahl<7 && auswahl!=0)
                 {
-                    Console.WriteLine("Auswahl ist ungültig.");
+                    auswahl = Convert.ToUInt32(auswahl0);
                 }
                 else
                 {
-                    auswahl = Convert.ToInt32(auswahl0);
+                    Console.WriteLine("Auswahl ist ungültig.");
                 }
 
                 switch (auswahl)
@@ -146,10 +147,19 @@ namespace Menü
                     case 3:
                         // quersumme += Convert.ToInt32(zahl[i].ToString());
                         Console.WriteLine("Geben Sie eine Zahl an:");
-                        int zahl = Convert.ToInt32(Console.ReadLine());
+                        string zahl0 = Console.ReadLine();
+                        if (uint.TryParse(zahl0, out uint zahl))
+                        {
+                            zahl = Convert.ToUInt32(zahl0);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Eingabe ist ungültig.");
+                            break;
+                        }
                         while (zahl > 0)
                         {
-                            int ziffer = zahl % 10;
+                            uint ziffer = zahl % 10;
                             zahl = (zahl - ziffer) / 10;
                             quersumme += ziffer;
                         }
@@ -175,6 +185,16 @@ namespace Menü
                         }
                         break;
                     case 5:
+                        Console.WriteLine("Geben Sie eine Zeichenkette ein, die umgekehrt werden soll:");
+                        s = Console.ReadLine();
+                        string f = "";
+                        for (int i=s.Length+-1;i>=0;i--)
+                        {
+                            f += s[i];
+                        }
+                        Console.WriteLine("Die umgekehrte Zeichenkette ist:\n"+f);
+                        break;
+                    case 6:
                         Console.WriteLine("Programm wird beendet.");
                         Environment.Exit(0);
                         break;
